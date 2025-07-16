@@ -1,8 +1,12 @@
 FROM ubuntu:22.04
 
+ENV DEBIAN_FRONTEND=noninteractive
+
 RUN apt-get update && \
     apt-get install -y git build-essential pkg-config libssl-dev wget unzip automake tclsh && \
     rm -rf /var/lib/apt/lists/*
+
+
 
 # Clone SRS
 RUN git clone https://github.com/ossrs/srs.git /usr/local/src/srs
