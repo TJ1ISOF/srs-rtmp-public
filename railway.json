@@ -1,0 +1,12 @@
+{
+  "build": {
+    "dockerfilePath": "Dockerfile"
+  },
+  "deploy": {
+    "port": 1935
+  },
+  "settings": {
+    "name": "srs-rtmp-server",
+    "public": true
+  }
+}
