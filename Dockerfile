@@ -1,7 +1,7 @@
 FROM ubuntu:22.04
 
 RUN apt-get update && \
-    apt-get install -y git build-essential pkg-config libssl-dev wget unzip automake && \
+    apt-get install -y git build-essential pkg-config libssl-dev wget unzip automake tclsh && \
     rm -rf /var/lib/apt/lists/*
 
 # Clone SRS
