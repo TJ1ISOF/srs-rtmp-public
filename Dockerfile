@@ -1,8 +1,9 @@
 FROM ubuntu:22.04
 
 RUN apt-get update && \
-    apt-get install -y git build-essential pkg-config libssl-dev wget && \
+    apt-get install -y git build-essential pkg-config libssl-dev wget unzip && \
     rm -rf /var/lib/apt/lists/*
+
 
 # Clone SRS
 RUN git clone https://github.com/ossrs/srs.git /usr/local/src/srs
