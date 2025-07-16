@@ -1,18 +1,18 @@
 FROM ubuntu:22.04
 
 RUN apt-get update && \
-    apt-get install -y git build-essential pkg-config libssl-dev wget unzip && \
+    apt-get install -y git build-essential pkg-config libssl-dev wget unzip automake && \
     rm -rf /var/lib/apt/lists/*
-
 
 # Clone SRS
 RUN git clone https://github.com/ossrs/srs.git /usr/local/src/srs
 WORKDIR /usr/local/src/srs/trunk
 
-# Build minimal server
+# Build minimal SRS
 RUN ./configure --without-transcode --without-ssl --without-hls --without-hds --without-dvr --without-nginx && \
     make -j$(nproc)
 
+# Copy your SRS config
 COPY srs.conf /usr/local/src/srs/trunk/objs/srs.conf
 
 EXPOSE 1935
